@@ -30,3 +30,13 @@ btn.click()
 webinar = driver.find_element_by_css_selector('a[event_id="34723"]')
 mo = ActionChains(driver).move_to_element(webinar)
 mo.perform()
+
+connect = driver.find_element_by_css_selector('div.join-webinar>a')
+connect.click()
+
+join = driver.find_element_by_css_selector('a.btn')
+join.btn.click()
+
+#Присоединиться
+btn = driver.find_element_by_css_selector ('div>a.btn-flat')
+btn.click()
