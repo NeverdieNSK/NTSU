@@ -1,16 +1,21 @@
-# This is a sample Python script.
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+import secret
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+driver = webdriver.Chrome(executable_path='chromedriver.exe')
+driver. get('https://dispace.edu.nstu.ru')
+driver.implicitly_wait(5)
+btn = driver.find_element_by_css_selector ('div.input-field>a')
+btn.click()
+driver.implicitly_wait(10)
+login = driver.find_element_by_name('callback_0')
+driver.implicitly_wait(10)
+login.send_keys(secret.login)
+driver.implicitly_wait(10)
+password = driver.find_element_by_name('callback_1')
+password.send_keys(secret.password)
+driver.implicitly_wait(10)
+button = driver.find_element_by_name('callback_2')
+button.click()
+driver.implicitly_wait(10)
